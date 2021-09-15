@@ -33,7 +33,7 @@ namespace Todo.Infra.Repositories
 
         public void Update(User user)
         {
-            _context.Entry(user).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            _context.Entry(user).State = EntityState.Modified;
         }
 
         public void Remove(User user)

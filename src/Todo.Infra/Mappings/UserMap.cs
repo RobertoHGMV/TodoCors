@@ -10,14 +10,12 @@ namespace Todo.Infra.Mappings
         {
             builder.ToTable("User");
             builder.HasKey(c => c.Id);
-            builder.Property(c => c.Name).HasMaxLength(60).HasColumnName("Name");
+            builder.OwnsOne(c => c.Name).Property(l => l.FirstName).HasMaxLength(60).HasColumnName("FirstName");
+            builder.OwnsOne(c => c.Name).Property(l => l.LastName).HasMaxLength(60).HasColumnName("LastName");
             builder.OwnsOne(c => c.Login).Property(l => l.UserName).HasMaxLength(20).HasColumnName("UserName");
-            builder.OwnsOne(c => c.Login).Property(l => l.Password).HasMaxLength(32).IsFixedLength().HasColumnName("Password");
+            builder.OwnsOne(c => c.Login).Property(l => l.Password).HasMaxLength(10).IsFixedLength().HasColumnName("Password");
             builder.OwnsOne(c => c.Login).Ignore(l => l.ConfirmPassword);
-            builder.OwnsOne(c => c.Login).Ignore(l => l.Valid);
             builder.OwnsOne(c => c.Email).Property(e => e.Address).HasMaxLength(160).HasColumnName("Email");
-            builder.OwnsOne(c => c.Email).Ignore(l => l.Valid);
-            builder.Ignore(c => c.Valid);
         }
     }
 }

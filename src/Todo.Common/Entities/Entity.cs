@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Todo.Common.Notifications;
-using Todo.Common.Validations;
 
 namespace Todo.Common.Entities
 {
@@ -10,7 +9,7 @@ namespace Todo.Common.Entities
         public bool Invalid => !Valid;
         public IReadOnlyCollection<Notification> Notifications { get; private set; }
 
-        public bool Validate(Validation validation)
+        public bool Validate(Notifiable validation)
         {
             Notifications = validation.Notifications;
             return Valid = !validation.HasNotifications;

@@ -1,18 +1,18 @@
 ﻿using NUnit.Framework;
 using System;
-using Todo.Common.Validations;
+using Todo.Common.Notifications;
 
 namespace Todo.Tests.Common.Validations
 {
     [TestFixture]
     public class ValidationTest
     {
-        private Validation _validation;
+        private Notifiable _validation;
 
         [SetUp]
         public void Setup()
         {
-            _validation = new Validation();
+            _validation = new Notifiable();
         }
 
         [Test]
@@ -164,7 +164,7 @@ namespace Todo.Tests.Common.Validations
         [Test]
         public void DadoDoisObjetosNaoDeveAdicionarValidacao()
         {
-            var sut = _validation.AreEquals(new Validation(), new Validation(), "", "");
+            var sut = _validation.AreEquals(new Notifiable(), new Notifiable(), "", "");
 
             var result = sut.HasNotifications;
 

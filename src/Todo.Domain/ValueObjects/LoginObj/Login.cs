@@ -2,7 +2,7 @@
 
 namespace Todo.Domain.ValueObjects.LoginObj
 {
-    public class Login : Entity
+    public class Login
     {
         protected Login() { }
 
@@ -11,7 +11,6 @@ namespace Todo.Domain.ValueObjects.LoginObj
             UserName = userName?.ToLower().Trim() ?? string.Empty;
             Password = password?.Trim() ?? string.Empty;
             ConfirmPassword = confirmPassword?.Trim() ?? string.Empty;
-            Validate(new LoginValidator(this));
         }
 
         public string UserName { get; private set; }

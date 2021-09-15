@@ -2,14 +2,13 @@
 
 namespace Todo.Domain.ValueObjects.EmailObj
 {
-    public class Email : Entity
+    public class Email
     {
         protected Email() { }
 
         public Email(string address)
         {
             Address = address;
-            Validate(new EmailValidator(this));
         }
 
         public string Address { get; private set; }

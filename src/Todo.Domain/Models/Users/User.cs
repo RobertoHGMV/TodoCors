@@ -1,12 +1,11 @@
 ﻿using System;
-using Todo.Common.Entities;
 using Todo.Domain.ValueObjects.EmailObj;
 using Todo.Domain.ValueObjects.LoginObj;
 using Todo.Domain.ValueObjects.NameObj;
 
 namespace Todo.Domain.Models.Users
 {
-    public class User : Entity
+    public class User
     {
         public User(Name name, Login login, Email email)
         {
@@ -14,8 +13,6 @@ namespace Todo.Domain.Models.Users
             Name = name;
             Login = login;
             Email = email;
-
-            Validate(new UserValidator(this));
         }
 
         protected User() { }
@@ -29,8 +26,6 @@ namespace Todo.Domain.Models.Users
         {
             Name = name;
             Email = email;
-
-            Validate(new UserValidator(this));
         }
     }
 }

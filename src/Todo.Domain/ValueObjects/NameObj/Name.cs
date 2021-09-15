@@ -2,7 +2,7 @@
 
 namespace Todo.Domain.ValueObjects.NameObj
 {
-    public class Name : Entity
+    public class Name
     {
         protected Name() { }
 
@@ -10,7 +10,6 @@ namespace Todo.Domain.ValueObjects.NameObj
         {
             FirstName = firstName;
             LastName = lastName;
-            Validate(new NameValidator(this));
         }
 
         public string FirstName { get; private set; }

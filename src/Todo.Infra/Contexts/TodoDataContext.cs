@@ -1,8 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Todo.Common;
 using Todo.Common.Notifications;
 using Todo.Domain.Models.Users;
 using Todo.Domain.ValueObjects.EmailObj;
@@ -19,7 +15,10 @@ namespace Todo.Infra.Contexts
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //if (!optionsBuilder.IsConfigured)
-                //optionsBuilder.UseSqlServer(Runtime.ConnectionStringSqlServer);
+            //optionsBuilder.UseSqlServer(Runtime.ConnectionStringSqlServer);
+
+            if (!optionsBuilder.IsConfigured)
+                optionsBuilder.UseInMemoryDatabase("Database");
         }
 
         protected override void OnModelCreating(ModelBuilder builder)

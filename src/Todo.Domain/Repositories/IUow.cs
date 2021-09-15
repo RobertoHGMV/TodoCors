@@ -1,4 +1,4 @@
-﻿namespace Todo.Infra.Transactions
+﻿namespace Todo.Domain.Repositories
 {
     public interface IUow
     {
