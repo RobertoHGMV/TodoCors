@@ -5,7 +5,6 @@ using Todo.Domain.Commands;
 using Todo.Domain.Commands.Users;
 using Todo.Domain.Handlers.Users;
 using Todo.Domain.Repositories;
-using Todo.Infra.Repositories;
 
 namespace Todo.Api.Controllers
 {
@@ -33,19 +32,13 @@ namespace Todo.Api.Controllers
                 var result = new List<GetUserCommandResult>();
 
                 foreach (var user in users)
-                    result.Add(new GetUserCommandResult
-                    {
-                        FirstName = user.Name.FirstName,
-                        LastName = user.Name.LastName,
-                        UserName = user.Login.UserName,
-                        Email = user.Email.Address
-                    });
+                    result.Add(new GetUserCommandResult(user.Name.FirstName, user.Name.LastName, user.Login.UserName, user.Email.Address));
 
                 return Ok(new GenericCommandResult(true, "Operação realizada com sucesso", result));
             }
             catch (Exception ex)
             {
-                return BadRequest(new GenericCommandResult { Success = false, Message = "Operação não realizada", Data = ex });
+                return BadRequest(new GenericCommandResult(false, "Operação não realizada", ex));
             }
         }
 
@@ -58,14 +51,13 @@ namespace Todo.Api.Controllers
                 var command = new GetUserCommand(username);
                 var result = _handler.Handle(command) as GenericCommandResult;
 
-                if (!result.Success)
-                    return BadRequest(new GenericCommandResult { Success = false, Message = "Operação não realizada", Data = command });
+                if (!result.Success) return BadRequest(result);
 
-                return Ok(new GenericCommandResult(true, "Operação realizada com sucesso", result));
+                return Ok(result);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return BadRequest(new GenericCommandResult { Success = false, Message = "Operação não realizada" });
+                return BadRequest(new GenericCommandResult(false, "Operação não realizada", ex));
             }
         }
 
@@ -77,14 +69,13 @@ namespace Todo.Api.Controllers
             {
                 var result = _handler.Handle(command) as GenericCommandResult;
 
-                if (!result.Success)
-                    return BadRequest(new GenericCommandResult { Success = false, Message = "Operação não realizada", Data = command });
+                if (!result.Success) return BadRequest(result);
 
                 return Created("", result);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return BadRequest(new GenericCommandResult { Success = false, Message = "Operação não realizada", Data = command });
+                return BadRequest(new GenericCommandResult(false, "Operação não realizada", ex));
             }
         }
 
@@ -96,14 +87,13 @@ namespace Todo.Api.Controllers
             {
                 var result = _handler.Handle(command) as GenericCommandResult;
 
-                if (!result.Success)
-                    return BadRequest(result);
+                if (!result.Success) return BadRequest(result);
 
                 return Ok(result);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return BadRequest(new GenericCommandResult { Success = false, Message = "Operação não realizada", Data = command });
+                return BadRequest(new GenericCommandResult(false, "Operação não realizada", ex));
             }
         }
 
@@ -115,14 +105,13 @@ namespace Todo.Api.Controllers
             {
                 var result = _handler.Handle(command) as GenericCommandResult;
 
-                if (!result.Success)
-                    return BadRequest(result);
+                if (!result.Success) return BadRequest(result);
 
                 return NoContent();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return BadRequest(new GenericCommandResult { Success = false, Message = "Operação não realizada", Data = command });
+                return BadRequest(new GenericCommandResult(false, "Operação não realizada", ex));
             }
         }
     }

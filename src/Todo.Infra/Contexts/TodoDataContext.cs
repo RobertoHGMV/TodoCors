@@ -14,9 +14,6 @@ namespace Todo.Infra.Contexts
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //if (!optionsBuilder.IsConfigured)
-            //optionsBuilder.UseSqlServer(Runtime.ConnectionStringSqlServer);
-
             if (!optionsBuilder.IsConfigured)
                 optionsBuilder.UseInMemoryDatabase("Database");
         }

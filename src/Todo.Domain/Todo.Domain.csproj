@@ -8,8 +8,4 @@
     <ProjectReference Include="..\Todo.Common\Todo.Common.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Queries\" />
-  </ItemGroup>
-
 </Project>

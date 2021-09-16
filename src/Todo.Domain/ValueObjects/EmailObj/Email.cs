@@ -1,6 +1,4 @@
-﻿using Todo.Common.Entities;
-
-namespace Todo.Domain.ValueObjects.EmailObj
+﻿namespace Todo.Domain.ValueObjects.EmailObj
 {
     public class Email
     {

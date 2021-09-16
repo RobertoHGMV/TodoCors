@@ -1,6 +1,4 @@
-﻿using Todo.Common.Entities;
-
-namespace Todo.Domain.ValueObjects.LoginObj
+﻿namespace Todo.Domain.ValueObjects.LoginObj
 {
     public class Login
     {

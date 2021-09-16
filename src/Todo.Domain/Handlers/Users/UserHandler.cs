@@ -32,9 +32,9 @@ namespace Todo.Domain.Handlers.Users
                 return new GenericCommandResult(false, "Não foi possível adicionar usuário", command.Notifications);
 
             var userTemp = _repository.GetByUserName(command.UserName);
-
+            
             if (userTemp != null)
-                return new GenericCommandResult(false, $"Existe usuário cadastrado com o nome {command.UserName}", null);
+                return new GenericCommandResult(false, $"Existe usuário cadastrado com o nome de usuário {command.UserName}", null);
 
             var name = new Name(command.FirstName, command.LastName);
             var login = new Login(command.UserName, command.Password, command.ConfirmPassword);
@@ -44,7 +44,7 @@ namespace Todo.Domain.Handlers.Users
             _repository.Add(user);
             _uow.Commit();
 
-            return new GenericCommandResult(true, "Usuário adicionado", user);
+            return new GenericCommandResult(true, "Usuário adicionado", CreateUserCommandResult(user));
         }
 
         public ICommandResult Handle(UpdateUserCommand command)
@@ -67,7 +67,7 @@ namespace Todo.Domain.Handlers.Users
             _repository.Update(user);
             _uow.Commit();
 
-            return new GenericCommandResult(true, "Usuário atualizado", user);
+            return new GenericCommandResult(true, "Usuário atualizado", CreateUserCommandResult(user));
         }
 
         public ICommandResult Handle(DeleteUserCommand command)
@@ -85,7 +85,7 @@ namespace Todo.Domain.Handlers.Users
             _repository.Remove(user);
             _uow.Commit();
 
-            return new GenericCommandResult(true, "Operação realizada com sucesso!", user);
+            return new GenericCommandResult(true, "Operação realizada com sucesso!", null);
         }
 
         public ICommandResult Handle(GetUserCommand command)
@@ -100,7 +100,12 @@ namespace Todo.Domain.Handlers.Users
             if (user is null)
                 return new GenericCommandResult(false, "Usuário não encontrado", command.Notifications);
 
-            return new GenericCommandResult(true, "Operação realizada com sucesso!", user);
+            return new GenericCommandResult(true, "Operação realizada com sucesso!", CreateUserCommandResult(user));
+        }
+
+        private GetUserCommandResult CreateUserCommandResult(User user)
+        {
+            return new GetUserCommandResult(user.Name.FirstName, user.Name.LastName, user.Login.UserName, user.Email.Address);
         }
     }
 }

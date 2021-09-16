@@ -1,6 +1,4 @@
-﻿using Todo.Common.Entities;
-
-namespace Todo.Domain.ValueObjects.NameObj
+﻿namespace Todo.Domain.ValueObjects.NameObj
 {
     public class Name
     {
