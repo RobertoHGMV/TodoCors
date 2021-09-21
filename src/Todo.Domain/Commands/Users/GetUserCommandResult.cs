@@ -1,5 +1,4 @@
-﻿using System;
-using Todo.Common.Commands;
+﻿using Todo.Common.Commands;
 
 namespace Todo.Domain.Commands.Users
 {

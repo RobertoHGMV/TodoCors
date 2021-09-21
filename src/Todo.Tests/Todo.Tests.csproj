@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.4" />
+    <PackageReference Include="Moq" Version="4.16.1" />
     <PackageReference Include="NUnit" Version="3.13.1" />
     <PackageReference Include="NUnit3TestAdapter" Version="3.17.0" />
     <PackageReference Include="coverlet.collector" Version="3.0.2" />
@@ -15,10 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Todo.Common\Todo.Common.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Domain\" />
+    <ProjectReference Include="..\Todo.Domain\Todo.Domain.csproj" />
   </ItemGroup>
 
 </Project>

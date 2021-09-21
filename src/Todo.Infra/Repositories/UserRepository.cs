@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Todo.Domain.Models.Users;
+using Todo.Domain.Queries.Users;
 using Todo.Domain.Repositories;
 using Todo.Infra.Contexts;
 
@@ -23,7 +24,7 @@ namespace Todo.Infra.Repositories
 
         public User GetByUserName(string userName)
         {
-            return _context.Users.AsNoTracking().FirstOrDefault(c => c.Login.UserName == userName);
+            return _context.Users.AsNoTracking().FirstOrDefault(UserQuery.GetByUserName(userName));
         }
 
         public void Add(User user)

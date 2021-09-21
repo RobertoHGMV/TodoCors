@@ -22,6 +22,8 @@ namespace Todo.Domain.Commands.Users
 
         public void Validate()
         {
+            IsNullOrEmpty(UserName, "UserName", "Nome de usuário inválido");
+
             IsNullOrEmpty(FirstName, "FirstName", "Nome não informado");
             HasMinLen(FirstName, 3, "FirstName", "Nome deve ter de 03 a 60 caracteres");
             HasMaxLen(FirstName, 60, "FirstName", "Nome deve ter de 03 a 60 caracteres");
