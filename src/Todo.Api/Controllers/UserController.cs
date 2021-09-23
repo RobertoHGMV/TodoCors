@@ -48,10 +48,12 @@ namespace Todo.Api.Controllers
         {
             try
             {
-                var command = new GetUserCommand(username);
-                var result = _handler.Handle(command) as GenericCommandResult;
+                var user = _repository.GetByUserName(username);
 
-                if (!result.Success) return BadRequest(result);
+                if (user is null)
+                    return BadRequest(new GenericCommandResult(false, "Usuário não encontrado", null));
+
+                var result = new GetUserCommandResult(user.Name.FirstName, user.Name.LastName, user.Login.UserName, user.Email.Address);
 
                 return Ok(result);
             }

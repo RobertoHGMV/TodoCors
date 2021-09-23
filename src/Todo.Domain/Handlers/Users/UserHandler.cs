@@ -13,7 +13,7 @@ using Todo.Domain.ValueObjects.NameObj;
 
 namespace Todo.Domain.Handlers.Users
 {
-    public class UserHandler : IHandler<CreateUserCommand>, IHandler<UpdateUserCommand>, IHandler<DeleteUserCommand>, IHandler<GetUserCommand>
+    public class UserHandler : IHandler<CreateUserCommand>, IHandler<UpdateUserCommand>, IHandler<DeleteUserCommand>
     {
         private readonly IUow _uow;
         private readonly IUserRepository _repository;
@@ -34,7 +34,7 @@ namespace Todo.Domain.Handlers.Users
             var userTemp = _repository.GetByUserName(command.UserName);
             
             if (userTemp != null)
-                return new GenericCommandResult(false, $"Existe usuário cadastrado com o nome de usuário {command.UserName}", null);
+                return new GenericCommandResult(false, $"Existe usuário cadastrado com o nome {command.UserName}", null);
 
             var name = new Name(command.FirstName, command.LastName);
             var login = new Login(command.UserName, command.Password, command.ConfirmPassword);
@@ -86,21 +86,6 @@ namespace Todo.Domain.Handlers.Users
             _uow.Commit();
 
             return new GenericCommandResult(true, "Operação realizada com sucesso!", null);
-        }
-
-        public ICommandResult Handle(GetUserCommand command)
-        {
-            command.Validate();
-
-            if (command.HasNotifications)
-                return new GenericCommandResult(false, "Não foi possível completar operação", command.Notifications);
-
-            var user = _repository.GetByUserName(command.UserName);
-
-            if (user is null)
-                return new GenericCommandResult(false, "Usuário não encontrado", command.Notifications);
-
-            return new GenericCommandResult(true, "Operação realizada com sucesso!", CreateUserCommandResult(user));
         }
 
         private GetUserCommandResult CreateUserCommandResult(User user)

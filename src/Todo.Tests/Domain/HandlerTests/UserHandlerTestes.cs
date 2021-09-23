@@ -125,39 +125,5 @@ namespace Todo.Tests.Domain.HandlerTests
 
             Assert.IsFalse(result.Success);
         }
-
-        [Test]
-        public void Dado_comando_invalido_nao_deve_retornar_usuario()
-        {
-            _userRepositoryMock.Setup(user => user.GetByUserName("jack")).Returns(_userHelper.UserValid);
-
-            var sut = new UserHandler(_uowMock.Object, _userRepositoryMock.Object);
-
-            var result = (GenericCommandResult)sut.Handle(_userHelper.GetUserCommandInvalid);
-
-            Assert.IsFalse(result.Success);
-        }
-
-        [Test]
-        public void Dado_comando_valido_deve_retornar_usuario()
-        {
-            _userRepositoryMock.Setup(user => user.GetByUserName("jack")).Returns(_userHelper.UserValid);
-
-            var sut = new UserHandler(_uowMock.Object, _userRepositoryMock.Object);
-
-            var result = (GenericCommandResult)sut.Handle(_userHelper.GetUserCommandValid);
-
-            Assert.IsTrue(result.Success);
-        }
-
-        [Test]
-        public void Dado_comando_com_nome_de_usuario_inexistente_nao_deve_retornar_usuario()
-        {
-            var sut = new UserHandler(_uowMock.Object, _userRepositoryMock.Object);
-
-            var result = (GenericCommandResult)sut.Handle(_userHelper.GetUserCommandInvalid);
-
-            Assert.IsFalse(result.Success);
-        }
     }
 }
