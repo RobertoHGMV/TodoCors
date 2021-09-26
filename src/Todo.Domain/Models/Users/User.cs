@@ -9,7 +9,7 @@ namespace Todo.Domain.Models.Users
     {
         public User(Name name, Login login, Email email)
         {
-            Id = Guid.NewGuid();
+            Id = Guid.NewGuid().ToString().Substring(0, 30);
             Name = name;
             Login = login;
             Email = email;
@@ -17,7 +17,7 @@ namespace Todo.Domain.Models.Users
 
         protected User() { }
 
-        public Guid Id { get; private set; }
+        public string Id { get; private set; }
         public Name Name { get; private set; }
         public Login Login { get; private set; }
         public Email Email { get; private set; }

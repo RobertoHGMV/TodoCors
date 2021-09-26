@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Todo.FluentMigrations\Todo.FluentMigrations.csproj" />
     <ProjectReference Include="..\Todo.Infra\Todo.Infra.csproj" />
   </ItemGroup>
 

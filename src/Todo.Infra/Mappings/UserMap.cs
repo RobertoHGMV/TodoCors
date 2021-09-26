@@ -15,7 +15,7 @@ namespace Todo.Infra.Mappings
             builder.OwnsOne(c => c.Login).Property(l => l.UserName).HasMaxLength(20).HasColumnName("UserName");
             builder.OwnsOne(c => c.Login).Property(l => l.Password).HasMaxLength(10).IsFixedLength().HasColumnName("Password");
             builder.OwnsOne(c => c.Login).Ignore(l => l.ConfirmPassword);
-            builder.OwnsOne(c => c.Email).Property(e => e.Address).HasMaxLength(160).HasColumnName("Email");
+            builder.OwnsOne(c => c.Email).Property(e => e.Address).HasMaxLength(160).HasColumnName("Address");
         }
     }
 }

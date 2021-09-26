@@ -2,6 +2,11 @@
 {
     public class Runtime
     {
-        public static string ConnectionStringSqlServer = "";
+        public struct FieldsName
+        {
+            public static readonly string ConnPostgres = "ConnPostgres";
+        }
+
+        public static string ConnPostgres = "";
     }
 }

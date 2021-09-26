@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Todo.Common;
 using Todo.Common.Notifications;
 using Todo.Domain.Models.Users;
 using Todo.Domain.ValueObjects.EmailObj;
@@ -15,7 +16,9 @@ namespace Todo.Infra.Contexts
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
-                optionsBuilder.UseInMemoryDatabase("Database");
+                optionsBuilder.UseNpgsql(Runtime.ConnPostgres);
+
+            //optionsBuilder.UseInMemoryDatabase("Database");
         }
 
         protected override void OnModelCreating(ModelBuilder builder)

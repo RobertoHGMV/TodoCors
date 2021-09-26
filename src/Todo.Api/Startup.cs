@@ -1,17 +1,13 @@
+using FluentMigrator.Runner;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Todo.Common;
 using Todo.DependencyInjection;
+using Todo.FluentMigrations.DbMigrations;
 
 namespace Todo.Api
 {
@@ -27,6 +23,8 @@ namespace Todo.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            Runtime.ConnPostgres = Configuration.GetConnectionString(Runtime.FieldsName.ConnPostgres);
+
             services.AddCors();
             services.AddControllers();
             services.AddSwaggerGen(c => 
@@ -35,10 +33,11 @@ namespace Todo.Api
             });
 
             new DependencyResolver().Resolver(services);
+            ConfigureFluentMigrator(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IMigrationRunner migrationRunner)
         {
             if (env.IsDevelopment())
             {
@@ -51,7 +50,6 @@ namespace Todo.Api
             }
 
             app.UseHttpsRedirection();
-
             app.UseRouting();
 
             app.UseCors(
@@ -66,6 +64,19 @@ namespace Todo.Api
             {
                 endpoints.MapControllers();
             });
+
+            migrationRunner.MigrateUp();
+        }
+
+        private void ConfigureFluentMigrator(IServiceCollection services)
+        {
+            services.AddFluentMigratorCore()
+                .ConfigureRunner(
+                builder => builder
+                .WithVersionTable(new TableVersionMigration())
+                .AddPostgres()
+                .WithGlobalConnectionString(Runtime.ConnPostgres)
+                .ScanIn(typeof(TableVersionMigration).Assembly).For.Migrations());
         }
     }
 }
