@@ -1,0 +1,11 @@
+B
+9C:\Projects\TodoCors\src\Todo.Common\Commands\ICommand.csutf-8H
+?C:\Projects\TodoCors\src\Todo.Common\Commands\ICommandResult.csutf-8B
+9C:\Projects\TodoCors\src\Todo.Common\ConnectionOptions.csutf-8B
+9C:\Projects\TodoCors\src\Todo.Common\Handlers\IHandler.csutf-8K
+BC:\Projects\TodoCors\src\Todo.Common\Notifications\IValidatable.csutf-8I
+@C:\Projects\TodoCors\src\Todo.Common\Notifications\Notifiable.csutf-8K
+BC:\Projects\TodoCors\src\Todo.Common\Notifications\Notification.csutf-8R
+IC:\Projects\TodoCors\src\Todo.Common\Notifications\NotificationContext.csutf-8v
+kC:\Projects\TodoCors\src\Todo.Common\obj\Debug\netcoreapp3.1\.NETCoreApp,Version=v3.1.AssemblyAttributes.csutf-8c
+XC:\Projects\TodoCors\src\Todo.Common\obj\Debug\netcoreapp3.1\Todo.Common.AssemblyInfo.csutf-8

@@ -23,7 +23,7 @@ namespace Todo.Tests.Common.Notifications
 
             var result = _notificationContext.Notifications.Count;
 
-            Assert.AreEqual(result, 1);
+            Assert.AreEqual(1, result);
         }
 
         [Test]
@@ -33,7 +33,7 @@ namespace Todo.Tests.Common.Notifications
 
             var result = _notificationContext.Notifications.Count;
 
-            Assert.AreEqual(result, 1);
+            Assert.AreEqual(1, result);
         }
 
         [Test]
@@ -44,7 +44,7 @@ namespace Todo.Tests.Common.Notifications
 
             var result = _notificationContext.Notifications.Count;
 
-            Assert.AreEqual(result, 1);
+            Assert.AreEqual(1, result);
         }
 
         [Test]
@@ -55,7 +55,7 @@ namespace Todo.Tests.Common.Notifications
 
             var result = _notificationContext.Notifications.Count;
 
-            Assert.AreEqual(result, 1);
+            Assert.AreEqual(1, result);
         }
 
         [Test]
@@ -66,7 +66,7 @@ namespace Todo.Tests.Common.Notifications
 
             var result = _notificationContext.Notifications.Count;
 
-            Assert.AreEqual(result, 1);
+            Assert.AreEqual(1, result);
         }
     }
 }

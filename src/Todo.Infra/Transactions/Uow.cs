@@ -5,7 +5,7 @@ namespace Todo.Infra.Transactions
 {
     public class Uow : IUow
     {
-        TodoDataContext _context;
+        readonly TodoDataContext _context;
 
         public Uow(TodoDataContext context)
         {

@@ -1,0 +1,14 @@
+﻿C:\Projects\TodoCors\src\Todo.Domain\Commands\GenericCommandResult.cs
+C:\Projects\TodoCors\src\Todo.Domain\Commands\Users\CreateUserCommand.cs
+C:\Projects\TodoCors\src\Todo.Domain\Commands\Users\DeleteUserCommand.cs
+C:\Projects\TodoCors\src\Todo.Domain\Commands\Users\GetUserCommand.cs
+C:\Projects\TodoCors\src\Todo.Domain\Commands\Users\GetUserCommandResult.cs
+C:\Projects\TodoCors\src\Todo.Domain\Commands\Users\UpdateUserCommand.cs
+C:\Projects\TodoCors\src\Todo.Domain\Handlers\Users\UserHandler.cs
+C:\Projects\TodoCors\src\Todo.Domain\Models\Users\User.cs
+C:\Projects\TodoCors\src\Todo.Domain\Queries\Users\UserQuery.cs
+C:\Projects\TodoCors\src\Todo.Domain\Repositories\IUow.cs
+C:\Projects\TodoCors\src\Todo.Domain\Repositories\IUserRepository.cs
+C:\Projects\TodoCors\src\Todo.Domain\ValueObjects\EmailObj\Email.cs
+C:\Projects\TodoCors\src\Todo.Domain\ValueObjects\LoginObj\Login.cs
+C:\Projects\TodoCors\src\Todo.Domain\ValueObjects\NameObj\Name.cs

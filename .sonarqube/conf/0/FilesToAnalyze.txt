@@ -1,0 +1,8 @@
+﻿C:\Projects\TodoCors\src\Todo.Common\Commands\ICommand.cs
+C:\Projects\TodoCors\src\Todo.Common\Commands\ICommandResult.cs
+C:\Projects\TodoCors\src\Todo.Common\ConnectionOptions.cs
+C:\Projects\TodoCors\src\Todo.Common\Handlers\IHandler.cs
+C:\Projects\TodoCors\src\Todo.Common\Notifications\IValidatable.cs
+C:\Projects\TodoCors\src\Todo.Common\Notifications\Notifiable.cs
+C:\Projects\TodoCors\src\Todo.Common\Notifications\Notification.cs
+C:\Projects\TodoCors\src\Todo.Common\Notifications\NotificationContext.cs

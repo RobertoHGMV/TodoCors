@@ -1,0 +1,4 @@
+﻿C:\Projects\TodoCors\src\Todo.Infra\Contexts\TodoDataContext.cs
+C:\Projects\TodoCors\src\Todo.Infra\Mappings\UserMap.cs
+C:\Projects\TodoCors\src\Todo.Infra\Repositories\UserRepository.cs
+C:\Projects\TodoCors\src\Todo.Infra\Transactions\Uow.cs

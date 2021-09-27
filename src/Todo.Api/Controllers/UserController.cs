@@ -12,8 +12,8 @@ namespace Todo.Api.Controllers
     [Route("api")]
     public class UserController : Controller
     {
-        IUserRepository _repository;
-        UserHandler _handler;
+        readonly IUserRepository _repository;
+        readonly UserHandler _handler;
 
         public UserController(IUserRepository repository, UserHandler handler)
         {

@@ -1,0 +1,17 @@
+N
+EC:\Projects\TodoCors\src\Todo.Domain\Commands\GenericCommandResult.csutf-8Q
+HC:\Projects\TodoCors\src\Todo.Domain\Commands\Users\CreateUserCommand.csutf-8Q
+HC:\Projects\TodoCors\src\Todo.Domain\Commands\Users\DeleteUserCommand.csutf-8N
+EC:\Projects\TodoCors\src\Todo.Domain\Commands\Users\GetUserCommand.csutf-8T
+KC:\Projects\TodoCors\src\Todo.Domain\Commands\Users\GetUserCommandResult.csutf-8Q
+HC:\Projects\TodoCors\src\Todo.Domain\Commands\Users\UpdateUserCommand.csutf-8K
+BC:\Projects\TodoCors\src\Todo.Domain\Handlers\Users\UserHandler.csutf-8B
+9C:\Projects\TodoCors\src\Todo.Domain\Models\Users\User.csutf-8H
+?C:\Projects\TodoCors\src\Todo.Domain\Queries\Users\UserQuery.csutf-8B
+9C:\Projects\TodoCors\src\Todo.Domain\Repositories\IUow.csutf-8M
+DC:\Projects\TodoCors\src\Todo.Domain\Repositories\IUserRepository.csutf-8L
+CC:\Projects\TodoCors\src\Todo.Domain\ValueObjects\EmailObj\Email.csutf-8L
+CC:\Projects\TodoCors\src\Todo.Domain\ValueObjects\LoginObj\Login.csutf-8J
+AC:\Projects\TodoCors\src\Todo.Domain\ValueObjects\NameObj\Name.csutf-8v
+kC:\Projects\TodoCors\src\Todo.Domain\obj\Debug\netcoreapp3.1\.NETCoreApp,Version=v3.1.AssemblyAttributes.csutf-8c
+XC:\Projects\TodoCors\src\Todo.Domain\obj\Debug\netcoreapp3.1\Todo.Domain.AssemblyInfo.csutf-8

@@ -10,7 +10,7 @@ namespace Todo.Infra.Repositories
 {
     public class UserRepository : IUserRepository
     {
-        TodoDataContext _context;
+        readonly TodoDataContext _context;
 
         public UserRepository(TodoDataContext context)
         {

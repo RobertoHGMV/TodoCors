@@ -1,0 +1,1 @@
+Roslyn version: 3.11.0.0Language version: CSharp8"Concurrent execution: disabled“ŽFile 'C:\Projects\TodoCors\src\Todo.Domain\obj\Debug\netcoreapp3.1\.NETCoreApp,Version=v3.1.AssemblyAttributes.cs' was recognized as generated{File 'C:\Projects\TodoCors\src\Todo.Domain\obj\Debug\netcoreapp3.1\Todo.Domain.AssemblyInfo.cs' was recognized as generated

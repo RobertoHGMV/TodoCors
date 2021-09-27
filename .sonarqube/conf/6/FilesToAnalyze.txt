@@ -1,0 +1,10 @@
+﻿C:\Projects\TodoCors\src\Todo.Api\Controllers\UserController.cs
+C:\Projects\TodoCors\src\Todo.Api\Program.cs
+C:\Projects\TodoCors\src\Todo.Api\Startup.cs
+C:\Projects\TodoCors\src\Todo.Api\obj\Debug\netcoreapp3.1\.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
+C:\Projects\TodoCors\src\Todo.Api\obj\Debug\netcoreapp3.1\Todo.Api.AssemblyInfo.cs
+C:\Projects\TodoCors\src\Todo.Api\obj\Debug\netcoreapp3.1\Todo.Api.MvcApplicationPartsAssemblyInfo.cs
+C:\Projects\TodoCors\src\Todo.Api\appsettings.Development.json
+C:\Projects\TodoCors\src\Todo.Api\appsettings.json
+C:\Projects\TodoCors\src\Todo.Api\Dockerfile
+C:\Projects\TodoCors\src\Todo.Api\Properties\launchSettings.json

@@ -16,7 +16,7 @@ namespace Todo.Infra.Contexts
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
-                optionsBuilder.UseNpgsql(Runtime.ConnPostgres);
+                optionsBuilder.UseNpgsql(ConnectionOptions.GetInstance().ConnPostgres);
 
             //optionsBuilder.UseInMemoryDatabase("Database");
         }
