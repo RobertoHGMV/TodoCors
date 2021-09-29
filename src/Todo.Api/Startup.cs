@@ -1,10 +1,12 @@
 using FluentMigrator.Runner;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using System.Linq;
 using Todo.Common;
 using Todo.DependencyInjection;
 using Todo.FluentMigrations.DbMigrations;
@@ -25,6 +27,13 @@ namespace Todo.Api
         public void ConfigureServices(IServiceCollection services)
         {
             _connOptions = new ConnectionOptions(Configuration.GetConnectionString(ConnectionOptions.FieldsName.ConnPostgres));
+
+            services.AddResponseCompression(options => 
+            {
+                options.Providers.Add<GzipCompressionProvider>();
+                options.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(new[] { "application/json" });
+            });
+            //services.AddResponseCaching();
 
             services.AddCors();
             services.AddControllers();

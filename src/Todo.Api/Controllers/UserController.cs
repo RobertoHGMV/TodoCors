@@ -23,6 +23,8 @@ namespace Todo.Api.Controllers
 
         [HttpGet]
         [Route("v1/[controller]")]
+        [ResponseCache(VaryByHeader = "User-Agent", Location = ResponseCacheLocation.Any, Duration = 0)]
+        // [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult GetAll()
         {
             try
