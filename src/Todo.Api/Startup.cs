@@ -25,7 +25,7 @@ namespace Todo.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            new ConnectionOptions(Configuration.GetConnectionString(ConnectionOptions.FieldsName.ConnPostgres));
+            new ConnectionOptions(Configuration.GetConnectionString(ConnectionOptions.FieldsName.ConnSqlServer));
 
             services.AddResponseCompression(options => 
             {
@@ -83,8 +83,9 @@ namespace Todo.Api
                 .ConfigureRunner(
                 builder => builder
                 .WithVersionTable(new TableVersionMigration())
-                .AddPostgres()
-                .WithGlobalConnectionString(ConnectionOptions.GetInstance().ConnPostgres)
+                .AddSqlServer()
+                //.AddPostgres()
+                .WithGlobalConnectionString(ConnectionOptions.GetInstance().ConnSqlServer)
                 .ScanIn(typeof(TableVersionMigration).Assembly).For.Migrations());
         }
     }

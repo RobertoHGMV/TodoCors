@@ -4,10 +4,12 @@
     {
         private static ConnectionOptions _instance;
 
+        public string ConnSqlServer { get; set; }
         public string ConnPostgres { get; set; }
 
         public struct FieldsName
         {
+            public static readonly string ConnSqlServer = "ConnSqlServer";
             public static readonly string ConnPostgres = "ConnPostgres";
         }
 
@@ -15,7 +17,7 @@
 
         public ConnectionOptions(string connStr)
         {
-            GetInstance().ConnPostgres = connStr;
+            GetInstance().ConnSqlServer = connStr;
         }
 
         public static ConnectionOptions GetInstance()
