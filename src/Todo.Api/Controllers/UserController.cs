@@ -22,7 +22,7 @@ namespace Todo.Api.Controllers
         }
 
         [HttpGet]
-        [Route("v1/[controller]")]
+        [Route("v1/users")]
         [ResponseCache(VaryByHeader = "User-Agent", Location = ResponseCacheLocation.Any, Duration = 0)]
         // [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult GetAll()
@@ -45,7 +45,7 @@ namespace Todo.Api.Controllers
         }
 
         [HttpGet]
-        [Route("v1/[controller]/{username}")]
+        [Route("v1/users/{username}")]
         public IActionResult Get(string username)
         {
             try
@@ -66,7 +66,7 @@ namespace Todo.Api.Controllers
         }
 
         [HttpPost]
-        [Route("v1/[controller]")]
+        [Route("v1/users")]
         public IActionResult Add([FromBody] CreateUserCommand command)
         {
             try
@@ -84,7 +84,7 @@ namespace Todo.Api.Controllers
         }
 
         [HttpPut]
-        [Route("v1/[controller]")]
+        [Route("v1/users")]
         public IActionResult Update([FromBody] UpdateUserCommand command)
         {
             try
@@ -102,7 +102,7 @@ namespace Todo.Api.Controllers
         }
 
         [HttpDelete]
-        [Route("v1/[controller]")]
+        [Route("v1/users")]
         public IActionResult Delete([FromBody] DeleteUserCommand command)
         {
             try
