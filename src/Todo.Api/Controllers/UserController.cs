@@ -21,8 +21,7 @@ namespace Todo.Api.Controllers
             _handler = handler;
         }
 
-        [HttpGet]
-        [Route("v1/users")]
+        [HttpGet("v1/users")]
         [ResponseCache(VaryByHeader = "User-Agent", Location = ResponseCacheLocation.Any, Duration = 0)]
         // [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult GetAll()
@@ -44,8 +43,7 @@ namespace Todo.Api.Controllers
             }
         }
 
-        [HttpGet]
-        [Route("v1/users/{username}")]
+        [HttpGet("v1/users/{username}")]
         public IActionResult Get(string username)
         {
             try
@@ -65,8 +63,7 @@ namespace Todo.Api.Controllers
             }
         }
 
-        [HttpPost]
-        [Route("v1/users")]
+        [HttpPost("v1/users")]
         public IActionResult Add([FromBody] CreateUserCommand command)
         {
             try
@@ -83,8 +80,7 @@ namespace Todo.Api.Controllers
             }
         }
 
-        [HttpPut]
-        [Route("v1/users")]
+        [HttpPut("v1/users")]
         public IActionResult Update([FromBody] UpdateUserCommand command)
         {
             try
@@ -101,13 +97,30 @@ namespace Todo.Api.Controllers
             }
         }
 
-        [HttpDelete]
-        [Route("v1/users")]
-        public IActionResult Delete([FromBody] DeleteUserCommand command)
+        //[HttpDelete]
+        //[Route("v1/users")]
+        //public IActionResult Delete([FromBody] DeleteUserCommand command)
+        //{
+        //    try
+        //    {
+        //        var result = _handler.Handle(command) as GenericCommandResult;
+
+        //        if (!result.Success) return BadRequest(result);
+
+        //        return NoContent();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return BadRequest(new GenericCommandResult(false, "Operação não realizada", ex));
+        //    }
+        //}
+
+        [HttpDelete("v1/users")]
+        public IActionResult Delete(string userName)
         {
             try
             {
-                var result = _handler.Handle(command) as GenericCommandResult;
+                var result = _handler.Handle(new DeleteUserCommand { UserName = userName }) as GenericCommandResult;
 
                 if (!result.Success) return BadRequest(result);
 
