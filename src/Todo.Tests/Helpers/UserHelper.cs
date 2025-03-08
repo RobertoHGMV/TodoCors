@@ -15,7 +15,7 @@ namespace Todo.Tests.Helpers
 
         public readonly CreateUserCommand CreateUserCommandValid = new CreateUserCommand("Jack", "Chan", "jack", "12345", "12345", "jack@gmail.com");
         public readonly CreateUserCommand CreateUserCommandInvalid = new CreateUserCommand("", "", "", "", "", "");
-        public readonly UpdateUserCommand UpdateUserCommandValid = new UpdateUserCommand("jack", "Jack", "Chan", "jack@gmail.com"); 
+        public readonly UpdateUserCommand UpdateUserCommandValid = new UpdateUserCommand("Jack", "Chan", "jack", "jack@gmail.com"); 
         public readonly UpdateUserCommand UpdateUserCommandInvalid = new UpdateUserCommand("", "", "", "");
         public readonly DeleteUserCommand DeleteUserCommandValid = new DeleteUserCommand("jack");
         public readonly DeleteUserCommand DeleteUserCommandInvalid = new DeleteUserCommand("");

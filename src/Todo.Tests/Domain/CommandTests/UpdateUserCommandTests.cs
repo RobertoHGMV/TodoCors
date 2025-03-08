@@ -7,13 +7,13 @@ namespace Todo.Tests.Domain.CommandTests
     public class UpdateUserCommandTests
     {
         [Test]
-        [TestCase("", "Jack", "Chan", "jack@gmail.com")]
-        [TestCase("jack", "", "Chan", "jack@gmail.com")]
-        [TestCase("jack", "Jack", "", "jack@gmail.com")]
-        [TestCase("jack", "Jack", "Chan", "")]
-        public void Dado_um_comando_invalido_deve_adicionar_notificacao(string userName, string firstName, string lastName, string email)
+        [TestCase("Jack", "Chan", "", "jack@gmail.com")]
+        [TestCase("", "Chan", "jack", "jack@gmail.com")]
+        [TestCase("Jack", "", "jack", "jack@gmail.com")]
+        [TestCase("Jack", "Chan", "jack", "")]
+        public void Dado_um_comando_invalido_deve_adicionar_notificacao(string firstName, string lastName, string userName, string email)
         {
-            var sut = new UpdateUserCommand(userName, firstName, lastName, email);
+            var sut = new UpdateUserCommand(firstName, lastName, userName, email);
             sut.Validate();
 
             var result = sut.HasNotifications;
@@ -23,9 +23,9 @@ namespace Todo.Tests.Domain.CommandTests
 
         [Test]
         [TestCase("jack", "Jack", "Chan", "jack@gmail.com")]
-        public void Dado_um_comando_valido_nao_deve_adicionar_notificacao(string userName, string firstName, string lastName, string email)
+        public void Dado_um_comando_valido_nao_deve_adicionar_notificacao(string firstName, string lastName, string userName, string email)
         {
-            var sut = new UpdateUserCommand(userName, firstName, lastName, email);
+            var sut = new UpdateUserCommand(firstName, lastName, userName, email);
             sut.Validate();
 
             var result = sut.HasNotifications;

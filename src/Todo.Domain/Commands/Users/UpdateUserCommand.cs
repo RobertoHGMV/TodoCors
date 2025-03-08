@@ -7,17 +7,17 @@ namespace Todo.Domain.Commands.Users
     {
         public UpdateUserCommand() { }
 
-        public UpdateUserCommand(string userName, string firstName, string lastName, string email)
+        public UpdateUserCommand(string firstName, string lastName, string userName, string email)
         {
-            UserName = userName;
             FirstName = firstName;
             LastName = lastName;
+            UserName = userName;
             Email = email;
         }
 
-        public string UserName { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string UserName { get; set; }
         public string Email { get; set; }
 
         public void Validate()
